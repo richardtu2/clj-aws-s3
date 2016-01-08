@@ -1,5 +1,5 @@
 (ns aws.sdk.s3
-  "Functions to access the Amazon S3 storage service.
+  "Functions to access the Amazon S3 storage services.
 
   Each function takes a map of credentials as its first argument. The
   credentials map should contain an :access-key key and a :secret-key key,
@@ -77,7 +77,7 @@
             (BasicSessionCredentials. (:access-key cred) (:secret-key cred) (:token cred))
             (BasicAWSCredentials. (:access-key cred) (:secret-key cred)))
 
-          client (AmazonS3Client. aws-creds client-configuration)]
+          client (AmazonS3Client. client-configuration)]
       (when-let [endpoint (:endpoint cred)]
         (.setEndpoint client endpoint))
       client)))
